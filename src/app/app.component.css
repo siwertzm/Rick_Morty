@@ -8,6 +8,13 @@
     background-color: rgb(182, 188, 190);
 }
 
+
+
+footer{
+    background-color: rgb(41, 50, 53) !important;
+    color: rgb(182, 188, 190);
+}
+
 .dropdown-menu{
     background-color: rgb(182, 188, 190);
     margin-top: 40px;
