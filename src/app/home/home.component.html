@@ -42,33 +42,43 @@
             </div>
         </div>
     </div>
-    <h1 class="text-center mt-5">
-        Episode mis en avant :
-    </h1>
     <div class="row mt-5">
         <div class="col-sm">
             <div class="card display-flex">
-                <h2>TEST</h2>
+                <div class="row">
+                    <div class="col-sm">
+                        <img src="{{pers3?.image}}">
+                    </div>
+                    <div class="col-sm">
+                        <h2 class="mt-2"><strong>{{pers3?.name}}</strong></h2>
+                        <h5>{{pers3?.status}} - {{pers3?.species}}</h5>
+                        <br>
+                        <h5><strong>Dernière position connue :</strong></h5>
+                        <h5><a routerLink="">{{pers3?.location.name}}</a></h5>
+                        <br>
+                        <h5><strong>Première apparition :</strong></h5>
+                        <h5><a routerLink="">{{pers3?.location.name}}</a></h5>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="col-sm">
             <div class="card display-flex">
-                <h2>TEST</h2>
-            </div>
-        </div>
-    </div>
-    <h1 class="text-center mt-5">
-        Lieux mis en avant :
-    </h1>
-    <div class="row mt-5">
-        <div class="col-sm">
-            <div class="card display-flex">
-                <h2>TEST</h2>
-            </div>
-        </div>
-        <div class="col-sm">
-            <div class="card display-flex">
-                <h2>TEST</h2>
+                <div class="row">
+                    <div class="col-sm">
+                        <img src="{{pers4?.image}}">
+                    </div>
+                    <div class="col-sm">
+                        <h2 class="mt-2"><strong>{{pers4?.name}}</strong></h2>
+                        <h5>{{pers4?.status}} - {{pers4?.species}}</h5>
+                        <br>
+                        <h5><strong>Dernière position connue :</strong></h5>
+                        <h5><a routerLink="">{{pers4?.location.name}}</a></h5>
+                        <br>
+                        <h5><strong>Première apparition :</strong></h5>
+                        <h5><a routerLink="">{{pers4?.location.name}}</a></h5>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

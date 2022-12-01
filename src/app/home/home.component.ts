@@ -11,50 +11,49 @@ export class HomeComponent {
 
   pers1: any;
   pers2: any;
-  location: any;
-  url: any;
+  pers3: any;
+  pers4: any;
   constructor(private Http: HttpClient) {
 
   }
 
   ngOnInit() {
-    this.nameLocation();
+    this.getPersonnage1();
     this.getPersonnage2();
-
+    this.getPersonnage3();
+    this.getPersonnage4();
   }
 
-  nameLocation(){
-    const pers = this.Http.get('https://rickandmortyapi.com/api/character/1').toPromise();
-    pers.then(data=>{
-      this.pers1 = data;
-      var episode: any = this.pers1.episode.get(1);
-      console.log(episode)
-      this.goLocation(episode);
-    })
+  getRandomInt(max:any){
+    return Math.floor(Math.random()*max);
   }
 
   getPersonnage1() {
-    this.Http.get('https://rickandmortyapi.com/api/character/1').subscribe({
-      next: (data) => { this.pers1 = data; console.log(this.pers1);},
+    var num = this.getRandomInt(826) + 1;
+    this.Http.get('https://rickandmortyapi.com/api/character/'+ num).subscribe({
+      next: (data) => { this.pers1 = data;},
       error: (err) => { console.log(err) }
     });
   }
   getPersonnage2() {
-    this.Http.get('https://rickandmortyapi.com/api/character/2').subscribe({
-      next: (data) => { this.pers2 = data; console.log(this.pers2);},
+    var num = this.getRandomInt(826) + 1;
+    this.Http.get('https://rickandmortyapi.com/api/character/'+ num).subscribe({
+      next: (data) => { this.pers2 = data;},
       error: (err) => { console.log(err) }
     });
   }
-
-  goLocation(val:any){
-    this.url = this.pers1.episode; 
-    this.Http.get(val).subscribe({
-      next: (data) => { this.location = data; console.log(this.location);},
+  getPersonnage3() {
+    var num = this.getRandomInt(826) + 1;
+    this.Http.get('https://rickandmortyapi.com/api/character/'+ num).subscribe({
+      next: (data) => { this.pers3 = data;},
       error: (err) => { console.log(err) }
     });
   }
-
-  test(){
-
+  getPersonnage4() {
+    var num = this.getRandomInt(826) + 1;
+    this.Http.get('https://rickandmortyapi.com/api/character/'+ num).subscribe({
+      next: (data) => { this.pers4 = data;},
+      error: (err) => { console.log(err) }
+    });
   }
 }
