@@ -27,8 +27,9 @@
                     </div>
                 </div>
                 <br>
-                <div>
+                <div *ngIf="p.episode.length > 6">
                 <h6><a>Voir plus d'épisode avec {{p?.name}} <i class="fas fa-arrow-right"></i></a></h6>
+                
             </div>
             </div>
         </div>

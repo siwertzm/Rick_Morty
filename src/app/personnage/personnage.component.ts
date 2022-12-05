@@ -9,18 +9,19 @@ import { Component } from '@angular/core';
 export class PersonnageComponent {
 
   pers: any;
-
+  nbrEp: any;
   constructor(private Http: HttpClient){
 
   }
 
   ngOnInit(){
     this.getPers();
+
   }
 
   getPers(){
     this.Http.get('https://rickandmortyapi.com/api/character').subscribe({
-      next: (data) => { this.pers = data; console.log(this.pers)},
+      next: (data) => { this.pers = data;},
       error: (err) => { console.log(err) }
     })
   }
