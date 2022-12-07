@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-root',
@@ -12,8 +13,9 @@ export class AppComponent {
   nbrPers: any;
   nbrEp: any;
   nbrLieu: any;
+  url: any;
 
-  constructor(private Http: HttpClient) {
+  constructor(private Http: HttpClient, public authService: AuthService) {
 
   }
 
@@ -43,4 +45,15 @@ export class AppComponent {
       error: (err) => { console.log(err) }
     })
   }
+
+  urlConnected(){
+    if (this.authService.isConnected()){
+      this.url="episode";
+    }else{
+      this.url='login';
+    }
+    return this.url;
+  }
+
+
 }

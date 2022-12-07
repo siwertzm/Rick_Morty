@@ -19,7 +19,7 @@
             <a class="nav-link" routerLink="episode">Episode</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link">Episode à voir</a>
+            <a routerLink="{{urlConnected()}}" class="nav-link">Episode à voir</a>
           </li>
         </ul>
 
@@ -31,25 +31,32 @@
           </div>
         </form>
 
-        <ul class="navbar-nav ">
-          <div class="test">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-user"></i>
-              </a>
-              <div class="dropdown-menu dropdown-menu-right dropdown-default"
-                aria-labelledby="navbarDropdownMenuLink-333">
-                <a routerLink='' class="dropdown-item">Mon profil</a>
-                <a routerLink='' class="dropdown-item">Mes amis</a>
-                <a routerLink='' class="dropdown-item">Personnage favoris</a>
-                <a routerLink='' class="dropdown-item">Episode favoris</a>
-                <hr class="dropdown-divider">
-                <a class="dropdown-item">Se déconnecter</a>
-              </div>
-            </li>
-          </div>
-        </ul>
+        <div *ngIf="!authService.isConnected()">
+          <button class="btn btn-outline-white btn-md my-2 my-sm-0 ml-3" type="submit"
+            routerLink='login'>Connexion</button>
+        </div>
+
+        <div *ngIf="authService.isConnected()">
+          <ul class="navbar-nav ">
+            <div class="test">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  <i class="fas fa-user"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-default"
+                  aria-labelledby="navbarDropdownMenuLink-333">
+                  <a routerLink='' class="dropdown-item">Mon profil</a>
+                  <a routerLink='' class="dropdown-item">Mes amis</a>
+                  <a routerLink='' class="dropdown-item">Personnage favoris</a>
+                  <a routerLink='' class="dropdown-item">Episode favoris</a>
+                  <hr class="dropdown-divider">
+                  <a (click)="authService.logout()" class="dropdown-item">Se déconnecter</a>
+                </div>
+              </li>
+            </div>
+          </ul>
+        </div>
       </div>
     </div>
   </nav>
@@ -58,7 +65,8 @@
 <footer class="text-center text-lg-start mt-5">
   <div class="mt-5">
     <br>
-    <h5 class="mt-5">Nombre de personnages : {{nbrPers?.info?.count}} - Nombre d'épisodes : {{nbrEp?.info?.count}} - Nombre de lieux : {{nbrLieu?.info?.count}}</h5>
+    <h5 class="mt-5">Nombre de personnages : {{nbrPers?.info?.count}} - Nombre d'épisodes : {{nbrEp?.info?.count}} -
+      Nombre de lieux : {{nbrLieu?.info?.count}}</h5>
   </div>
   <div class="text-center p-3">
     © 2022 Marius Siwertz
