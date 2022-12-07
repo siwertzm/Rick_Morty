@@ -1,0 +1,23 @@
+<div style="margin: auto; width: 80%">
+    <div class="card display-flex mt-5">
+        <div class="row">
+            <div class="col-sm">
+                <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg">
+            </div>
+            <div class="col-sm">
+                <h2 class="mt-2"><strong>{{authService.getUserConnected().nom}}</strong> {{authService.getUserConnected().prenom}} </h2>
+                <h5>Alive - Human</h5>
+                <br>
+                <h5><strong>Login :</strong></h5>
+                <h5>{{authService.getUserConnected().login}}</h5>
+                <h5><strong>Mot de passe :</strong></h5>
+                <h5>{{authService.getUserConnected().mdp}}</h5>
+                <h5><strong>Première apparition :</strong></h5>
+                <h5>{{authService.getUserConnected().ville}}</h5>
+            </div>
+            <div class="col-sm text-center mt-5">
+                <button type="button" class="btn waves-effect" id="modify">Modifier le profil</button>
+            </div>
+        </div>
+    </div>
+</div>

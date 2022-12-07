@@ -29,4 +29,13 @@ export class AuthService {
     localStorage.clear();
     this.route.navigateByUrl('');
   }
+
+  hiddenPassword(){
+    let password: any = this.getUserConnected().mdp;
+    let hiddenPass: any = "";
+    for (let i=0; i<password.length; i++){
+      hiddenPass = hiddenPass + "*"
+    }
+    return hiddenPass;
+  }
 }

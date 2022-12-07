@@ -10,6 +10,8 @@ import { PersonnageComponent } from './personnage/personnage.component';
 import { EpisodeComponent } from './episode/episode.component';
 import { LieuComponent } from './lieu/lieu.component';
 import { ConnexionComponent } from './connexion/connexion.component';
+import { InscriptionComponent } from './inscription/inscription.component';
+import { ProfilComponent } from './profil/profil.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { ConnexionComponent } from './connexion/connexion.component';
     PersonnageComponent,
     EpisodeComponent,
     LieuComponent,
-    ConnexionComponent
+    ConnexionComponent,
+    InscriptionComponent,
+    ProfilComponent
   ],
   imports: [
     BrowserModule,
