@@ -2,11 +2,12 @@
     <div class="text-center mt-5">
         <h1>Liste des épisodes</h1>
     </div>
-    <div class="block" *ngFor="let e of episode?.results">
+    <div class="block" *ngFor="let e of episodeDetail; let j=index">
+        <div *ngIf="j<11">
         <div class="card display-flex mt-5">
             <div class="row">
-                <div class="col-sm">
-                    <img src="">
+                <div class="col-sm mt-1 ml-1 mb-1">
+                    <img src="{{img?.at(e?.id - 1).lien}}">
                 </div>
                 <div class="col-sm">
                     <h2 class="mt-2"><strong>{{e?.name}}</strong></h2>
@@ -17,17 +18,19 @@
                 </div>
                 <div class="col-sm">
                     <h2 class="mt-2"><strong>Liste des apparitions :</strong></h2>
-                    <div *ngFor="let e of e.characters; let i=index">
-                        <div *ngIf="i<6">
-                            <h5>Test</h5>
+
+                    <div *ngFor="let e of episode.results?.at(e?.id-1)?.characters; let i=index">
+                        <div *ngIf="i<3">
+                            <h5>{{e}}</h5>
                         </div>
                     </div>
-                    <br>
-                    <div *ngIf="e.characters.length > 6">
-                    <h6><a>Voir plus de personnage de l'episode : {{e?.name}} <i class="fas fa-arrow-right"></i></a></h6>
-                </div>
+                    <div *ngIf="episode.results?.at(e?.id)?.characters?.length > 3">
+                        <h6><a>Voir plus de personnage de l'episode : {{e?.name}} <i class="fas fa-arrow-right"></i></a>
+                        </h6>
+                    </div>
                 </div>
             </div>
         </div>
-        </div>
     </div>
+    </div>
+</div>
