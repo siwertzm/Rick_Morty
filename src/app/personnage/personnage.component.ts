@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { AuthService } from '../auth.service';
+import { PersoServiceService } from '../perso-service.service';
 
 @Component({
   selector: 'app-personnage',
@@ -11,7 +13,7 @@ export class PersonnageComponent {
   pers: any;
   nbrEp: any;
   episode: any;
-  constructor(private Http: HttpClient){
+  constructor(private Http: HttpClient, public authService: AuthService, public persoService: PersoServiceService){
 
   }
 
@@ -52,5 +54,21 @@ export class PersonnageComponent {
     var num = Number(val);
     return num;
   }
+
+  addFavPerso(){
+    let fav = {user: this.authService.getUserConnected(), recette: this.persoService.getPerso()}
+    this.Http.post('http://localhost:8280/favori',fav).subscribe({
+      next: (data)=> {console.log(data)},
+      error: (err)=> {console.log(err)}
+    })
+  }
+
+  savePerso(val: any){
+    this.persoService.setPerso(val);
+    var test = this.persoService.getPerso();
+    console.log(test)
+  }
+
+
 
 }

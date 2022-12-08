@@ -11,6 +11,7 @@ import { EpisodeComponent } from './episode/episode.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { ProfilComponent } from './profil/profil.component';
+import { PersoFavorisComponent } from './perso-favoris/perso-favoris.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ProfilComponent } from './profil/profil.component';
     EpisodeComponent,
     ConnexionComponent,
     InscriptionComponent,
-    ProfilComponent
+    ProfilComponent,
+    PersoFavorisComponent
   ],
   imports: [
     BrowserModule,
