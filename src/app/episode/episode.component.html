@@ -43,9 +43,9 @@
                     <div class="col-sm">
                         <h2 class="mt-2"><strong>Liste des apparitions :</strong></h2>
 
-                        <div *ngFor="let p of e.characters; let i=index">
+                        <div *ngFor="let n of e.characters; let i=index">
                             <div *ngIf="i<3">
-                                <h5>{{gestionEpisode(p).at(-1)}}</h5>
+                                <h5>{{gestionEpisode(n).at(-1)}}</h5>
                             </div>
                         </div>
                         <div *ngIf="e.characters?.length > 3">

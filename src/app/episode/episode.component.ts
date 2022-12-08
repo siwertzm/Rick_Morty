@@ -12,8 +12,6 @@ export class EpisodeComponent {
   episode: any;
   img: any;
   saison: any=1;
-  pers: any;
-  perso: any;
   constructor(private Http: HttpClient) {
 
   }
@@ -21,14 +19,6 @@ export class EpisodeComponent {
   ngOnInit() {
     this.getEp(this.saison);
     this.getImg();
-    this.getPerso();
-  }
-
-  getPerso(){
-    this.Http.get('https://rickandmortyapi.com/api/character').subscribe({
-      next: (data) => { this.pers = data;},
-      error: (err) => { console.log(err) }
-    })
   }
 
 
@@ -75,13 +65,7 @@ export class EpisodeComponent {
     var num = Number(val);
     return num;
   }
-
-  getNom(val: any){
-    this.Http.get('https://rickandmortyapi.com/api/character/'+val).subscribe({
-      next: (data)=> {this.perso = data;},
-      error: (err)=> {console.log(err)}
-    });
-    return this.perso;
-  }
+  
 
 }
+
