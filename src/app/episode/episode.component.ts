@@ -9,58 +9,50 @@ import { range } from 'rxjs';
 })
 export class EpisodeComponent {
 
-  episodeDetail: any;
   episode: any;
   img: any;
-  nom:any;
-  constructor(private Http: HttpClient){
+  saison: any=1;
+  constructor(private Http: HttpClient) {
 
   }
 
-  ngOnInit(){
-    this.getEpisode();
-    this.getEp();
+  ngOnInit() {
+    this.getEp(this.saison);
     this.getImg();
   }
 
-  getEp(){
+  getEp(val: any) {
 
-    this.Http.get('https://rickandmortyapi.com/api/episode?page='+ 1).subscribe({
-      next: (data) => { this.episode = data; console.log(this.episode);},
+    this.Http.get('https://rickandmortyapi.com/api/episode/?episode=S0'+val).subscribe({
+      next: (data) => { this.episode = data; console.log(this.episode); },
       error: (err) => { console.log(err) }
     })
   }
 
-  getEpisode(){
-    this.Http.get('http://localhost:8280/episode').subscribe({
-      next: (data) => { this.episodeDetail = data;},
-      error: (err) => { console.log(err) }
-    })
-  }
-
-  
-
-  getImg(){
+  getImg() {
     this.Http.get('http://localhost:8280/img').subscribe({
-      next: (data) => { this.img = data;},
+      next: (data) => { this.img = data; },
       error: (err) => { console.log(err) }
     })
   }
 
-  FindNom(val:any){
-    this.Http.get(val).subscribe({
-      next: (data) => { this.nom = data;},
-      error: (err) => { console.log(err) }
-    })
-    return this.nom.name;
+  rechercheEpisode(val: any) {
+    if (val != '') {
+      this.Http.get('https://rickandmortyapi.com/api/episode/?name=' + val).subscribe({
+        next: (data) => { this.episode = data },
+        error: (err) => { console.log(err) }
+      })
+    } else {
+      this.Http.get('https://rickandmortyapi.com/api/episode/?episode=S01').subscribe({
+        next: (data) => { this.episode = data; console.log(this.episode); },
+        error: (err) => { console.log(err) }
+      })
+    }
   }
 
-  rechercheEpisode(val: any){
-    this.Http.get('https://rickandmortyapi.com/api/episode/?name='+val).subscribe({
-      next: (data)=> {this.episodeDetail = data},
-      error: (err) => { console.log(err) }
-    })
-
+  changerSaison(val: any){
+    this.saison = val;
+    this.getEp(this.saison);
   }
 
 }

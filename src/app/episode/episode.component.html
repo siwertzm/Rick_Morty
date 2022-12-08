@@ -1,45 +1,60 @@
 <div style="margin: auto; width: 75%">
-    <div class="row">
-    <div class="col-sm text-center mt-5">
-        <h1>Liste des épisodes</h1>
-    </div>
-    <div class="col-sm mt-4">
-        <form class="form-inline mt-4">
-            <input class="form-control w-50" type="search" #data placeholder="Recherche">
-            <button class="btn btn-outline-white btn-md my-2 my-sm-0 ml-5" type="submit"
-                (click)="rechercheEpisode(data.value)">Rechercher</button>
-        </form>
-    </div>
-    </div>
-    <div class="block" *ngFor="let e of episodeDetail; let j=index">
-        <div *ngIf="j<11">
-        <div class="card display-flex mt-5">
-            <div class="row">
-                <div class="col-sm">
-                    <img class="m-2" src="{{img?.at(e?.id - 1).lien}}">
+    <div class="row mt-5">
+        <div class="col text-left mt-2">
+            <h1><strong>Liste des épisodes</strong></h1>
+        </div>
+        <div class="col">
+            <form class="form-inline mt-2">
+                <input class="form-control w-50 ml-1" type="search" #data placeholder="Recherche">
+                <button class="btn btn-outline-white my-2 my-sm-0 ml-3" type="submit"
+                    (click)="rechercheEpisode(data.value)">Rechercher</button>
+            </form>
+        </div>
+        <div class="col text-right">
+            <div class="btn-group dropright">
+                <button type="button" class="btn">Saison {{saison}}</button>
+                <button type="button" class="btn dropdown-toggle px-3" data-toggle="dropdown" aria-haspopup="true"
+                  aria-expanded="false">
+                  <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <div class="dropdown-menu ml-3">
+                    <a class="dropdown-item" (click)="changerSaison(1)">Saison 1</a>
+                    <a class="dropdown-item" (click)="changerSaison(2)">Saison 2</a>
+                    <a class="dropdown-item" (click)="changerSaison(3)">Saison 3</a>
+                    <a class="dropdown-item" (click)="changerSaison(4)">Saison 4</a>
+                    <a class="dropdown-item" (click)="changerSaison(5)">Saison 5</a>
                 </div>
-                <div class="col-sm">
-                    <h2 class="mt-2"><strong>{{e?.name}}</strong></h2>
-                    <h5>{{e?.episode}} - {{e?.air_date}}</h5>
-                    <br>
-                    <h5><strong>Date de création :</strong></h5>
-                    <h5>{{e?.created}}</h5>
-                </div>
-                <div class="col-sm">
-                    <h2 class="mt-2"><strong>Liste des apparitions :</strong></h2>
-
-                    <div *ngFor="let e of episode.results?.at(e?.id-1)?.characters; let i=index">
-                        <div *ngIf="i<3">
-                            <h5>{{e}}</h5>
-                        </div>
+              </div>
+        </div>
+    </div>
+    <div class="block" *ngFor="let e of episode.results;">
+            <div class="card display-flex mt-5">
+                <div class="row">
+                    <div class="col-sm">
+                        <img class="m-2" src="{{img?.at(e?.id - 1).lien}}">
                     </div>
-                    <div *ngIf="episode.results?.at(e?.id)?.characters?.length > 3">
-                        <h6><a>Voir plus de personnage de l'episode : {{e?.name}} <i class="fas fa-arrow-right"></i></a>
-                        </h6>
+                    <div class="col-sm ml-2">
+                        <h2 class="mt-2"><strong>{{e?.name}}</strong></h2>
+                        <h5>{{e?.episode}} - {{e?.air_date}}</h5>
+                        <br>
+                        <h5><strong>Date de création :</strong></h5>
+                        <h5>{{e?.created}}</h5>
+                    </div>
+                    <div class="col-sm">
+                        <h2 class="mt-2"><strong>Liste des apparitions :</strong></h2>
+
+                        <div *ngFor="let p of e.characters; let i=index">
+                            <div *ngIf="i<3">
+                                <h5>{{p}}</h5>
+                            </div>
+                        </div>
+                        <div *ngIf="e.characters?.length > 3">
+                            <h6><a>Voir plus de personnage de l'episode : {{e?.name}} <i
+                                        class="fas fa-arrow-right"></i></a>
+                            </h6>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
     </div>
 </div>
