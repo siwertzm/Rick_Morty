@@ -13,9 +13,6 @@
             <a class="nav-link" routerLink="personnage">Personnage</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link">Lieux</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" routerLink="episode">Episode</a>
           </li>
         </ul>
@@ -38,7 +35,7 @@
             <div class="test">
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">
+                  aria-haspopup="true" aria-expanded="false"><strong>{{authService.getUserConnected().nom}}</strong> {{authService.getUserConnected().prenom}}
                   <i class="fas fa-user"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-default"

@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { PersonnageComponent } from './personnage/personnage.component';
 import { EpisodeComponent } from './episode/episode.component';
-import { LieuComponent } from './lieu/lieu.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { ProfilComponent } from './profil/profil.component';
@@ -19,7 +18,6 @@ import { ProfilComponent } from './profil/profil.component';
     HomeComponent,
     PersonnageComponent,
     EpisodeComponent,
-    LieuComponent,
     ConnexionComponent,
     InscriptionComponent,
     ProfilComponent

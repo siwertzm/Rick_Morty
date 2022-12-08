@@ -22,21 +22,21 @@
                     <h5>{{p?.status}} - {{p?.species}}</h5>
                     <br>
                     <h5><strong>Dernière position connue :</strong></h5>
-                    <h5><a routerLink="">{{p?.location.name}}</a></h5>
+                    <h5>{{p?.location.name}}</h5>
                     <h5><strong>Première apparition :</strong></h5>
-                    <h5><a routerLink="">{{p?.episode.at(0)}}</a></h5>
+                    <h5>{{episode.at(convertStringNumber(gestionEpisode(p?.episode.at(0)).at(-1))-1).episode}} - {{episode.at(convertStringNumber(gestionEpisode(p?.episode.at(0)).at(-1))-1).name}}</h5>
                     <h5><strong>Origine :</strong></h5>
-                    <h5><a routerLink="">{{p?.origin.name}}</a></h5>
+                    <h5>{{p?.origin.name}}</h5>
                 </div>
                 <div class="col-sm">
                     <h2 class="mt-2"><strong>Liste des apparitions :</strong></h2>
                     <div *ngFor="let e of p.episode; let i=index">
-                        <div *ngIf="i<6">
-                            <h5>Test</h5>
+                        <div *ngIf="i<8">
+                            <h6><strong>{{episode.at(convertStringNumber(gestionEpisode(e).at(-1))-1).episode}}</strong> - {{episode.at(convertStringNumber(gestionEpisode(e).at(-1))-1).name}}</h6>
                         </div>
                     </div>
                     <br>
-                    <div *ngIf="p.episode.length > 6">
+                    <div *ngIf="p.episode.length > 8">
                         <h6><a>Voir plus d'épisode avec {{p?.name}} <i class="fas fa-arrow-right"></i></a></h6>
 
                     </div>
