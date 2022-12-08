@@ -55,4 +55,12 @@ export class EpisodeComponent {
     return this.nom.name;
   }
 
+  rechercheEpisode(val: any){
+    this.Http.get('https://rickandmortyapi.com/api/episode/?name='+val).subscribe({
+      next: (data)=> {this.episodeDetail = data},
+      error: (err) => { console.log(err) }
+    })
+
+  }
+
 }

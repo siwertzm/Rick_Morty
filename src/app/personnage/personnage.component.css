@@ -5,3 +5,8 @@ h1{
 .card{
     background-color: rgb(182, 188, 190);
 }
+
+.btn{
+    color:  rgb(59, 181, 73) !important;
+    border-color: rgb(59, 181, 73) !important;
+}

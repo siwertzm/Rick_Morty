@@ -26,4 +26,12 @@ export class PersonnageComponent {
     })
   }
 
+  recherchePerso(val: any){
+    this.Http.get('https://rickandmortyapi.com/api/character/?name='+val).subscribe({
+      next: (data)=> {this.pers = data},
+      error: (err) => { console.log(err) }
+    })
+
+  }
+
 }
