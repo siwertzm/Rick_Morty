@@ -1,4 +1,4 @@
-<div style="margin: auto; width: 80%">
+<div style="margin: auto; width: 75%">
     <div class="text-center mt-5">
         <h1>Liste des épisodes</h1>
     </div>
@@ -6,8 +6,8 @@
         <div *ngIf="j<11">
         <div class="card display-flex mt-5">
             <div class="row">
-                <div class="col-sm mt-1 ml-1 mb-1">
-                    <img src="{{img?.at(e?.id - 1).lien}}">
+                <div class="col-sm">
+                    <img class="m-2" src="{{img?.at(e?.id - 1).lien}}">
                 </div>
                 <div class="col-sm">
                     <h2 class="mt-2"><strong>{{e?.name}}</strong></h2>

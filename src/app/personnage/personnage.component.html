@@ -1,4 +1,4 @@
-<div style="margin: auto; width: 80%">
+<div style="margin: auto; width: 75%">
 <div class="text-center mt-5">
     <h1>Liste des personnages</h1>
 </div>
@@ -6,7 +6,7 @@
     <div class="card display-flex mt-5">
         <div class="row">
             <div class="col-sm">
-                <img src="{{p?.image}}">
+                <img class="m-2" src="{{p?.image}}">
             </div>
             <div class="col-sm">
                 <h2 class="mt-2"><strong>{{p?.name}}</strong></h2>
@@ -15,7 +15,7 @@
                 <h5><strong>Dernière position connue :</strong></h5>
                 <h5><a routerLink="">{{p?.location.name}}</a></h5>
                 <h5><strong>Première apparition :</strong></h5>
-                <h5><a routerLink="">{{p?.location.name}}</a></h5>
+                <h5><a routerLink="">{{p?.episode.at(0)}}</a></h5>
                 <h5><strong>Origine :</strong></h5>
                 <h5><a routerLink="">{{p?.origin.name}}</a></h5>
             </div>
