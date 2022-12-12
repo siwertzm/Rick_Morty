@@ -1,0 +1,14 @@
+h1{
+    color: rgb(182, 188, 190);
+}
+.card{
+    background-color: rgb(182, 188, 190);
+}
+
+.btn{
+    background-color: rgb(59, 181, 73) !important;
+}
+
+.test{
+    margin-top: 20%;
+}

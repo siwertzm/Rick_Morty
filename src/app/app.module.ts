@@ -12,6 +12,8 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { ProfilComponent } from './profil/profil.component';
 import { PersoFavorisComponent } from './perso-favoris/perso-favoris.component';
+import { AmiComponent } from './ami/ami.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { PersoFavorisComponent } from './perso-favoris/perso-favoris.component';
     ConnexionComponent,
     InscriptionComponent,
     ProfilComponent,
-    PersoFavorisComponent
+    PersoFavorisComponent,
+    AmiComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

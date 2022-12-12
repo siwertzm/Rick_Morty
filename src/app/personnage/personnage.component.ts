@@ -45,6 +45,7 @@ export class PersonnageComponent {
 
   }
 
+
   gestionEpisode(sub: string){
     let res = sub.split("/", 100);
     return res;
