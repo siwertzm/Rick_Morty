@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { range } from 'rxjs';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-episode',
@@ -12,7 +13,7 @@ export class EpisodeComponent {
   episode: any;
   img: any;
   saison: any=1;
-  constructor(private Http: HttpClient) {
+  constructor(private Http: HttpClient, public authService: AuthService) {
 
   }
 
