@@ -70,6 +70,10 @@ export class PersonnageComponent {
     console.log(test)
   }
 
+  test(val:any){
+    console.log(val);
+  }
+
 
 
 }

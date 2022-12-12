@@ -10,6 +10,7 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { PersoFavorisComponent } from './perso-favoris/perso-favoris.component';
 import { PersonnageComponent } from './personnage/personnage.component';
 import { ProfilComponent } from './profil/profil.component';
+import { TestComponent } from './test/test.component';
 import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
@@ -23,7 +24,8 @@ const routes: Routes = [
   {component: PersoFavorisComponent, path: 'persoFavoris'},
   {component: AmiComponent, path: 'amis'},
   {component: UserComponent, path: 'user'},
-  {component: DemandeComponent, path: 'demande'}
+  {component: DemandeComponent, path: 'demande'},
+  {component: TestComponent, path: 'test'}
 ];
 
 @NgModule({

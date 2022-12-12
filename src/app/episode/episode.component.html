@@ -28,6 +28,7 @@
         </div>
     </div>
     <div class="block" *ngFor="let e of episode?.results;">
+        {{test(e)}}
         <div class="card display-flex mt-5">
             <div class="row">
                 <div class="col-sm">
@@ -49,8 +50,8 @@
                 </div>
                 <div class="col-sm">
                     <h2 class="mt-2"><strong>Liste des apparitions :</strong></h2>
-
-                    <div *ngFor="let n of e.characters; let i=index">
+                    {{getNames(e.characters)}}
+                    <!-- <div *ngFor="let n of e.characters; let i=index">
                         <div *ngIf="i<3">
                             <h5>{{gestionEpisode(n).at(-1)}}</h5>
                         </div>
@@ -58,7 +59,7 @@
                     <div *ngIf="e.characters?.length > 3">
                         <h6><a>Voir plus de personnage de l'episode : {{e?.name}} <i class="fas fa-arrow-right"></i></a>
                         </h6>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

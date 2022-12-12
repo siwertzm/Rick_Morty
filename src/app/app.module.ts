@@ -15,6 +15,7 @@ import { PersoFavorisComponent } from './perso-favoris/perso-favoris.component';
 import { AmiComponent } from './ami/ami.component';
 import { UserComponent } from './user/user.component';
 import { DemandeComponent } from './demande/demande.component';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { DemandeComponent } from './demande/demande.component';
     PersoFavorisComponent,
     AmiComponent,
     UserComponent,
-    DemandeComponent
+    DemandeComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
