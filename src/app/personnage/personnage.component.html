@@ -14,13 +14,13 @@
     <div class="block" *ngFor="let p of pers?.results">
         <div class="card display-flex mt-5">
             <div class="row">
-                <div class="col-sm">
-                    <img class="m-2" src="{{p?.image}}">
+                <div class="col-sm"><a class="card-link" (click)="savePerso(p)">
+                    <img class="m-2" src="{{p?.image}}"></a>
                 </div>
                 <div class="col-sm">
                     <div class="row">
                         <div class="col-10">
-                            <h2 class="mt-2"><a class="card-link" (click)="savePerso(p)"><strong>{{p?.name}} </strong></a></h2>
+                            <h2 class="mt-2"><strong>{{p?.name}} </strong></h2>
                         </div>
                         <div class="col-2 mt-3" *ngIf="authService.isConnected()">
                             <a class="card-link" (click)="addFavPerso()"><i class="far fa-star"></i></a>
@@ -31,8 +31,8 @@
                     <h5><strong>Dernière position connue :</strong></h5>
                     <h5>{{p?.location.name}}</h5>
                     <h5><strong>Première apparition :</strong></h5>
-                    <h5>{{episode.at(convertStringNumber(gestionEpisode(p?.episode?.at(0)).at(-1))-1).episode}} -
-                        {{episode.at(convertStringNumber(gestionEpisode(p?.episode?.at(0)).at(-1))-1).name}}</h5>
+                    <h5>{{episode?.at(convertStringNumber(gestionEpisode(p?.episode?.at(0)).at(-1))-1).episode}} -
+                        {{episode?.at(convertStringNumber(gestionEpisode(p?.episode?.at(0)).at(-1))-1).name}}</h5>
                     <h5><strong>Origine :</strong></h5>
                     <h5>{{p?.origin.name}}</h5>
                 </div>
@@ -40,12 +40,12 @@
                     <h2 class="mt-2"><strong>Liste des apparitions :</strong></h2>
                     <div *ngFor="let e of p.episode; let i=index">
                         <div *ngIf="i<8">
-                            <h6><strong>{{episode.at(convertStringNumber(gestionEpisode(e).at(-1))-1).episode}}</strong>
-                                - {{episode.at(convertStringNumber(gestionEpisode(e).at(-1))-1).name}}</h6>
+                            <h6><strong>{{episode?.at(convertStringNumber(gestionEpisode(e).at(-1))-1).episode}}</strong>
+                                - {{episode?.at(convertStringNumber(gestionEpisode(e).at(-1))-1).name}}</h6>
                         </div>
                     </div>
                     <br>
-                    <div *ngIf="p.episode.length > 8">
+                    <div *ngIf="p.episode?.length > 8">
                         <h6><a>Voir plus d'épisode avec {{p?.name}} <i class="fas fa-arrow-right"></i></a></h6>
 
                     </div>

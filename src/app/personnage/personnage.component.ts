@@ -24,8 +24,8 @@ export class PersonnageComponent {
   }
 
   getPers(){
-    this.Http.get('https://rickandmortyapi.com/api/character').subscribe({
-      next: (data) => { this.pers = data;},
+      this.Http.get('https://rickandmortyapi.com/api/character/?page=1').subscribe({
+      next: (data) => { this.pers = data ;},
       error: (err) => { console.log(err) }
     })
   }
@@ -57,7 +57,7 @@ export class PersonnageComponent {
 
   addFavPerso(){
     let fav = {user: this.authService.getUserConnected(), recette: this.persoService.getPerso()}
-    this.Http.post('http://localhost:8280/favori',fav).subscribe({
+    this.Http.post('http://localhost:8280/favori/perso',fav).subscribe({
       next: (data)=> {console.log(data)},
       error: (err)=> {console.log(err)}
     })
