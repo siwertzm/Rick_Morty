@@ -1,7 +1,7 @@
 <div style="margin: auto; width: 75%">
     <div class="row">
         <div class="col-sm text-center mt-5">
-            <h1>Mes amis</h1>
+            <h1>Mes demande d'amis</h1>
         </div>
         <div class="col-sm mt-4">
             <form class="form-inline mt-4">
@@ -9,13 +9,27 @@
                 <button class="btn btn-outline-white btn-md my-2 my-sm-0 ml-5" type="submit">Rechercher</button>
             </form>
         </div>
-        <div class="col-sm text-right mt-5">
-            <div class="btn-group dropright">
-                <button type="button" class="btn" (click)="GoTo()">Trouver des amis</button>
+    </div>
+    <div class="card display-flex mt-5 absolue" *ngFor="let a of demandeAtt">
+        <div class="row">
+            <div class="col-sm">
+                <img class="m-2" src="https://rickandmortyapi.com/api/character/avatar/1.jpeg">
+            </div>
+            <div class="col-sm">
+                <h2 class="mt-2"><strong>{{a.receveur.nom}}</strong> {{a.receveur.prenom}} </h2>
+                <h5>Alive - Human</h5>
+                <br>
+                <h5><strong>Login :</strong></h5>
+                <h5>{{a.receveur.login}}</h5>
+                <h5><strong>Première apparition(ville de naissance) :</strong></h5>
+                <h5>{{a.receveur.ville}}</h5>
+            </div>
+            <div class="col-sm text-center mt-5">
+                <button type="button" class="test2 btn waves-effect"> En Attente</button>
             </div>
         </div>
     </div>
-    <div class="card display-flex mt-5 absolue" *ngFor="let d of demandeRec">
+    <div class="card display-flex mt-5 absolue" *ngFor="let d of demande">
         <div class="row">
             <div class="col-sm">
                 <img class="m-2" src="https://rickandmortyapi.com/api/character/avatar/1.jpeg">
@@ -29,28 +43,12 @@
                 <h5><strong>Première apparition(ville de naissance) :</strong></h5>
                 <h5>{{d.envoyeur.ville}}</h5>
             </div>
-            <div class="col-sm text-center">
-                <button type="button" class="test btn waves-effect" (click)="refuserDemande(d.id)"> Supprimer</button>
+            <div class="col-sm text-center mt-5">
+                <button type="button" class="test btn waves-effect"
+                    (click)="acceptDemande(authService.getUserConnected().id, d.id)"> Accepter</button>
+                <button type="button" class="test btn waves-effect" (click)="refuserDemande(d.id)"> Refuser</button>
             </div>
         </div>
     </div>
-    <div class="card display-flex mt-5 absolue" *ngFor="let e of demandeEnv">
-        <div class="row">
-            <div class="col-sm">
-                <img class="m-2" src="https://rickandmortyapi.com/api/character/avatar/1.jpeg">
-            </div>
-            <div class="col-sm">
-                <h2 class="mt-2"><strong>{{e.receveur.nom}}</strong> {{e.receveur.prenom}} </h2>
-                <h5>Alive - Human</h5>
-                <br>
-                <h5><strong>Login :</strong></h5>
-                <h5>{{e.receveur.login}}</h5>
-                <h5><strong>Première apparition(ville de naissance) :</strong></h5>
-                <h5>{{e.receveur.ville}}</h5>
-            </div>
-            <div class="col-sm text-center">
-                <button type="button" class="test btn waves-effect" (click)="refuserDemande(e.id)"> Supprimer</button>
-            </div>
-        </div>
-    </div>
+
 </div>

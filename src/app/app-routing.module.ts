@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AmiComponent } from './ami/ami.component';
 import { ConnexionComponent } from './connexion/connexion.component';
+import { DemandeComponent } from './demande/demande.component';
 import { EpisodeComponent } from './episode/episode.component';
 import { HomeComponent } from './home/home.component';
 import { InscriptionComponent } from './inscription/inscription.component';
@@ -21,7 +22,8 @@ const routes: Routes = [
   {component: ProfilComponent, path: 'profil'},
   {component: PersoFavorisComponent, path: 'persoFavoris'},
   {component: AmiComponent, path: 'amis'},
-  {component: UserComponent, path: 'user'}
+  {component: UserComponent, path: 'user'},
+  {component: DemandeComponent, path: 'demande'}
 ];
 
 @NgModule({

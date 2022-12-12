@@ -27,7 +27,7 @@ export class UserComponent {
   }
 
   addAmi(val: any){
-    let demande = { envoyeur: this.authService.getUserConnected(), receveur: val};
+    let demande = { envoyeur: this.authService.getUserConnected(), receveur: val, valide : false};
     if (val.id != this.authService.getUserConnected().id){
       this.Http.post('http://localhost:8280/demande', demande).subscribe({
       next: (data)=> {console.log(data)},
@@ -49,6 +49,8 @@ export class UserComponent {
       })
     }
   }
+
+  
 
 
 
